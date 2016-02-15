@@ -1,0 +1,152 @@
+moscovia,266,159,3	script	Betinah	62,{
+ 
+if(.supremo==1) goto supremo;
+if(acabou==1){
+mes "Bom trabalho, Aventureiro!";
+close;
+}
+
+mes "[Betinah]";
+mes "Olá, "+strcharinfo(0)+",Muitos Falam em forjar Armas Supremas.";
+next;
+mes "[Betinah]";
+mes "Ouvi dizer que precisa de uma liga metalica pra isso. Por que devem ser Armas fortes... Por ser de nosso Rei...";
+next;
+mes "[Betinah]";
+mes "Você deseja ir em busca da sua ^FF0000Arma Suprema^000000";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes "[Betinah]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes "Se você me fizer um favor posso te indicar meu amigo ^FF0000Avalon^000000 para ele te ajudar a criar sua Arma suprema você quer?";
+next;
+switch(select("Sim Quero Ajudar:Não obrigado")) {
+
+case 2:
+mes "[Betinah]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+set .item,rand(1,5);
+if(.item==1){
+set .in,1;
+}
+if(.item==2){
+set .in,2;
+}
+if(.item==3){
+set .in,3;
+}
+if(.item==4){
+set .in,4;
+}
+if(.item==5){
+set .in,5;
+}
+mes "[Betinah]";
+if(.in==1){
+mes "Me Traga 150 ^FF0000Cristal de Peridoto.^000000";
+mes "Quando tiver os itens volte e fale comigo.";
+}
+if(.in==2){
+mes "Me Traga 200 ^FF0000Amuleto dos Orcs.^000000";
+mes "Quando tiver os itens volte e fale comigo.";
+}
+if(.in==3){
+mes "Me Traga 200 ^FF0000Troncos.^000000";
+mes "Quando tiver os itens volte e fale comigo.";
+}
+if(.in==4){
+mes "Me Traga 200 ^FF0000Cyfar.^000000";
+mes "Quando tiver os itens volte e fale comigo.";
+}
+if(.in==5){
+mes "Me Traga 200 ^FF0000Brigan.^000000";
+mes "Quando tiver os itens volte e fale comigo.";
+}
+mes "Estarei esperando!";
+close2;
+set .supremo,1;
+end;
+}
+ 
+supremo:
+mes "[Betinah]";
+if(.in==1){
+if(countitem(7289)<150){
+mes "Você não trouxe os 150 ^FF0000Cristais de Peridoto.^000000!";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 7289,150;
+mes "Parabéns aqui Esta 1 Moeda de Bronze vá até o Avalon para continua a Quest";
+getitem 673, 1;
+dispbottom "Avalon fica no Mapa warp prontera 257 312";
+set .supremo,0;
+close;
+}
+}
+if(.in==2){
+if(countitem(931)<200){
+mes "Você não trouxe os 200 ^FF0000Amuleto dos Orcs.^000000!";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 931,200;
+mes "Parabéns aqui Esta 1 Moeda de Bronze vá até o Avalon para continua a Quest";
+getitem 673, 1;
+dispbottom "Avalon fica no Mapa warp prontera 257 312";
+set .supremo,0;
+close;
+}
+}
+if(.in==3){
+if(countitem(1019)<200){
+mes "Você não trouxe os 200 ^FF0000Troncos.^000000!";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 1019,200;
+mes "Parabéns aqui Esta 1 Moeda de Bronze vá até o Avalon para continua a Quest";
+getitem 673, 1;
+dispbottom "Avalon fica no Mapa warp prontera 257 312";
+set .supremo,0;
+close;
+}
+}
+if(.in==4){
+if(countitem(7053)<200){
+mes "Você não trouxe os 200 ^FF0000Cyfars.^000000!";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 7053,200;
+mes "Parabéns aqui Esta 1 Moeda de Bronze vá até o Avalon para continua a Quest";
+getitem 673, 1;
+dispbottom "Avalon fica no Mapa warp prontera 257 312";
+set .supremo,0;
+close;
+}
+}
+if(.in==5){
+if(countitem(7054)<200){
+mes "Você não trouxe os 200 ^FF0000Brigans.^000000!";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 7054,200;
+mes "Parabéns aqui Esta 1 Moeda de Bronze vá até o Avalon para continua a Quest";
+getitem 673, 1;
+dispbottom "Avalon fica no Mapa warp prontera 257 312";
+set .supremo,0;
+close;
+}
+}
+}
+}

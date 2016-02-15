@@ -1,0 +1,157 @@
+prontera,256,314,3	script	Avalon	48,{
+ 
+if(.supremo1 == 1) goto supremo1;
+if(acabou==1){
+mes "Bom trabalho, Aventureiro!";
+close;
+}
+
+mes "[Avalon]";
+mes "Olá, "+strcharinfo(0)+",Muitos Falam em forjar Armas Supremas.";
+next;
+mes "[Avalon]";
+mes "Então você quer criar uma Arma suprema ne?... essas Armas são muito forte...";
+next;
+mes "[Avalon]";
+mes "Você deseja ir em busca da sua ^FF0000Arma Suprema^000000";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes "[Avalon]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes "Se você me fizer um favor posso te indicar meu amigo ^FF0000Petrus^000000 para ele te ajudar a criar sua Arma suprema você quer?";
+next;
+switch(select("Sim Quero Ajudar:Não obrigado")) {
+
+case 2:
+mes "[Avalon]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+set .item,rand(1,5);
+if(.item==1){
+set .in,1;
+}
+if(.item==2){
+set .in,2;
+}
+if(.item==3){
+set .in,3;
+}
+if(.item==4){
+set .in,4;
+}
+if(.item==5){
+set .in,5;
+}
+mes "[Avalon]";
+if(.in==1){
+mes "Me Traga 150 ^FF0000Oridecon.^000000 e 1 Moeda de Bronze";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Prata";
+}
+if(.in==2){
+mes "Me Traga 200 ^FF0000Minério de Oridecon.^000000 e 1 Moeda de Bronze";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Prata";
+}
+if(.in==3){
+mes "Me Traga 200 ^FF0000Elunium.^000000 e 1 Moeda de Bronze";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Prata";
+}
+if(.in==4){
+mes "Me Traga 150 ^FF0000Vento Bruto.^000000 e 1 Moeda de Bronze";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Prata";
+}
+if(.in==5){
+mes "Me Traga 30 ^FF0000Emperium.^000000 e 1 Moeda de Bronze";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Prata";
+}
+mes "Estarei esperando!";
+close2;
+set .supremo1,1;
+end;
+}
+ 
+supremo1:
+mes "[Avalon]";
+if(.in==1){
+if(countitem(673)<1 && countitem(984) >= 150){
+mes "Você não trouxe os 150 ^FF0000Oridecon.^000000! ou 1 Moeda de Bronze";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 673,1;
+delitem 984,150;
+mes "Parabéns aqui Esta 1 Moeda de Prata vá até o Petrus para continua a Quest";
+getitem 675, 1;
+dispbottom "Petrus fica no Mapa warp payon 82 326";
+set .supremo1,0;
+close;
+}
+}
+if(.in==2){
+if(countitem(673)<1 && countitem(756) >= 200){
+mes "Você não trouxe os 200 ^FF0000Minério de Oridecon.^000000! ou 1 Moeda de Bronze";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 673,1;
+delitem 756,200;
+mes "Parabéns aqui Esta 1 Moeda de Prata vá até o Petrus para continua a Quest";
+getitem 675, 1;
+dispbottom "Petrus fica no Mapa warp payon 82 326";
+set .supremo1,0;
+close;
+}
+}
+if(.in==3){
+if(countitem(673)<1 && countitem(985) >= 200){
+mes "Você não trouxe os 200 ^FF0000Elunium.^000000! ou 1 Moeda de Bronze";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 673,1;
+delitem 985,200;
+mes "Parabéns aqui Esta 1 Moeda de Prata vá até o Petrus para continua a Quest";
+getitem 675, 1;
+dispbottom "Petrus fica no Mapa warp payon 82 326";
+set .supremo1,0;
+close;
+}
+}
+if(.in==4){
+if(countitem(673)<1 && countitem(996) >= 150){
+mes "Você não trouxe os 150 ^FF0000Vento Bruto.^000000! ou 1 Moeda de Bronze";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 673,1;
+delitem 996,150;
+mes "Parabéns aqui Esta 1 Moeda de Prata vá até o Petrus para continua a Quest";
+getitem 675, 1;
+dispbottom "Petrus fica no Mapa warp payon 82 326";
+set .supremo1,0;
+close;
+}
+}
+if(.in==5){
+if(countitem(673)<1 && countitem(714) >= 30){
+mes "Você não trouxe os 30 ^FF0000Emperium.^000000! ou 1 Moeda de Bronze";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 673,1;
+delitem 714,30;
+mes "Parabéns aqui Esta 1 Moeda de Prata vá até o Petrus para continua a Quest";
+getitem 675, 1;
+dispbottom "Petrus fica no Mapa warp payon 82 326";
+set .supremo1,0;
+close;
+}
+}
+}
+}

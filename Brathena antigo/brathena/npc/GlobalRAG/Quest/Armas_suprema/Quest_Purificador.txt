@@ -1,0 +1,299 @@
+ra_temsky,132,103,4	script	Purificador de Armas	412,{
+set @npc$,"[^FF7F24Purificador de Armas^000000]";
+if (#FAMA<1000){
+	mes @npc$;
+	mes "Só fale comigo quando você tiver a ^FF0000Fama Suprema acima de 1000 pontos^000000 quando você tiver, Volte e fale comigo";
+close2;
+end;
+}
+
+mes @npc$;
+mes "Olá, "+strcharinfo(0)+",Vejo que você tem a Fama Suprema pra criar uma Arma Suprema você quer criar uma Arma Suprema?.";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes @npc$;
+mes "A que otimo...Mais qual Arma Suprema você quer criar?";
+next;
+switch(select("*Lâmina Suprema:*Maça Suprema:*Baixo Supremo:*Arco Supremo:*Bastão Supremo:*Chicote Supremo:*Rifle Supremo:Nada Obrigado")) {
+
+case 1:
+mes @npc$;
+mes "Para criar a ^FF0000*Lâmina Suprema^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Lâmina [4]^000000";
+mes "^FF00003 Pedra Negra Nivel 5^000000";
+mes "^FF00001 Forma para *Lâmina^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1108) >= 1 && countitem(21674) >= 3 && countitem(21346) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000LÂMINA SUPREMA^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar sua Lâmina Suprema Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1108, 1;
+delitem 21674, 3;
+delitem 21346, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21335, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 2:
+mes @npc$;
+mes "Para criar a ^FF0000*Maça Suprema^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Maça [4]^000000";
+mes "^FF00003 Pedra Azul Nivel 5^000000";
+mes "^FF00001 Forma para *Maça^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1505) >= 1 && countitem(21672) >= 3 && countitem(21347) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000MAÇA SUPREMA^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar sua *Maça Suprema Suprema Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1505, 1;
+delitem 21672, 3;
+delitem 21347, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21336, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 3:
+mes @npc$;
+mes "Para criar a ^FF0000*Baixo Supremo^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Violino [4]^000000";
+mes "^FF00003 Pedra Amarela Nivel 5^000000";
+mes "^FF00001 Forma para *Baixo^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1902) >= 1 && countitem(21674) >= 3 && countitem(21346) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000BAIXO SUPREMO^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar seu Baixo Supremo Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1902, 1;
+delitem 21674, 3;
+delitem 21346, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21340, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 4:
+mes @npc$;
+mes "Para criar a ^FF0000*Arco Supremo^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Arco Composto [4]^000000";
+mes "^FF00003 Pedra Amarela Nivel 5^000000";
+mes "^FF00001 Forma para *Arco^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1705) >= 1 && countitem(21670) >= 3 && countitem(21343) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000ARCO SUPREMO^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar seu Arco Supremo Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1705, 1;
+delitem 21670, 3;
+delitem 21343, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21338, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 5:
+mes @npc$;
+mes "Para criar a ^FF0000*Bastão Supremo^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Bastão [4]^000000";
+mes "^FF00003 Pedra Vermelha Nivel 5^000000";
+mes "^FF00001 Forma para *Bastão^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1602) >= 1 && countitem(21671) >= 3 && countitem(21344) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000BASTÃO SUPREMO^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar seu Bastão Supremo Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1602, 1;
+delitem 21671, 3;
+delitem 21344, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21337, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 6:
+mes @npc$;
+mes "Para criar a ^FF0000*Chicote Supremo^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Cordel [4]^000000";
+mes "^FF00003 Pedra Verde Nivel 5^000000";
+mes "^FF00001 Forma para *Chicote^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(1951) >= 1 && countitem(21673) >= 3 && countitem(21345) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000CHICOTE SUPREMO^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar seu Chicote Supremo Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 1951, 1;
+delitem 21673, 3;
+delitem 21345, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21339, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 7:
+mes @npc$;
+mes "Para criar a ^FF0000*Rifle Supremo^000000 você precisa de";
+next;
+mes @npc$;
+mes "^FF000010 *Ouro para Fundicão^000000";
+mes "^FF000020 *Prata para Fundicão^000000";
+mes "^FF00001 Raio Vermelho [2]^000000";
+mes "^FF00003 Pedra Negra Nivel 5^000000";
+mes "^FF00001 Forma para *Rifle^000000";
+next;
+switch(select("Sim Já tenho os itens!:Não Obrigado")) {
+
+case 2:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+if (countitem(19161) >= 10 && countitem(19160) >= 20 && countitem(13103) >= 1 && countitem(21674) >= 3 && countitem(21348) >= 1) {
+mes "Bom Trabalho toma Sua ^FF0000RIFLE SUPREM0^000000";
+announce "O char "+strcharinfo(0)+" Acabou de Criar seu Rifle Supremo Parabéns",0;
+close2;
+delitem 19161, 10;
+delitem 19160, 20;
+delitem 13103, 1;
+delitem 21674, 3;
+delitem 21348, 1;
+set #FAMA,#FAMA-1000;
+dispbottom "Você acaba de Perder 1000 pontos de Fama..";
+getitem 21341, 1;
+} 
+else {
+mes "Você ainda não tem os itens!";
+mes "Volte quando tiver!";
+close;
+}
+}
+case 8:
+mes @npc$;
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+}
+}
+end;
+}

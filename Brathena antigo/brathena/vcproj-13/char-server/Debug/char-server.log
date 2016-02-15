@@ -1,0 +1,97 @@
+﻿Build started 14/02/2016 16:44:27.
+     1>Project "C:\Users\Jonh\Desktop\GlobalRAG\Brathena antigo\brathena\vcproj-13\char-server.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\3rdparty\libconfig /I..\3rdparty\mysql\include /I..\3rdparty\msinttypes\include /I..\3rdparty\mt19937ar /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WIN32 /D __WIN32 /D _DEBUG /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D FD_SETSIZE=4096 /D LIBCONFIG_STATIC /D YY_USE_CONST /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"char-server\Debug\\" /Fd"char-server\Debug\vc120.pdb" /Gd /TC /wd4800 /analyze- /errorReport:prompt ..\3rdparty\libconfig\grammar.c ..\3rdparty\libconfig\libconfig.c ..\3rdparty\libconfig\scanctx.c ..\3rdparty\libconfig\scanner.c ..\3rdparty\libconfig\strbuf.c ..\3rdparty\mt19937ar\mt19937ar.c ..\src\common\conf.c ..\src\common\lang.c ..\src\common\core.c ..\src\common\console.c ..\src\common\db.c ..\src\common\ers.c ..\src\common\malloc.c ..\src\common\mapindex.c ..\src\common\mempool.c ..\src\common\mutex.c ..\src\common\nullpo.c ..\src\common\raconf.c ..\src\common\random.c ..\src\common\showmsg.c ..\src\common\socket.c ..\src\common\sql.c ..\src\common\strlib.c ..\src\common\thread.c ..\src\common\timer.c ..\src\common\utils.c ..\src\char\char.c ..\src\char\int_auction.c ..\src\char\int_elemental.c ..\src\char\int_guild.c ..\src\char\int_homun.c ..\src\char\int_mail.c ..\src\char\int_mercenary.c ..\src\char\int_party.c ..\src\char\int_pet.c ..\src\char\int_quest.c ..\src\char\int_storage.c ..\src\char\inter.c ..\src\char\pincode.c
+         grammar.c
+         libconfig.c
+         scanctx.c
+         scanner.c
+         strbuf.c
+         mt19937ar.c
+         conf.c
+         lang.c
+         core.c
+         console.c
+         db.c
+         ers.c
+         malloc.c
+         mapindex.c
+         mempool.c
+         mutex.c
+         nullpo.c
+         raconf.c
+         random.c
+         showmsg.c
+         socket.c
+         sql.c
+     1>c:\users\jonh\desktop\globalrag\brathena antigo\brathena\src\common\socket.c(1277): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(2238) : see declaration of 'gethostbyname'
+     1>c:\users\jonh\desktop\globalrag\brathena antigo\brathena\src\common\socket.c(1426): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(2238) : see declaration of 'gethostbyname'
+     1>c:\users\jonh\desktop\globalrag\brathena antigo\brathena\src\common\socket.c(1436): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1868) : see declaration of 'inet_ntoa'
+     1>c:\users\jonh\desktop\globalrag\brathena antigo\brathena\src\common\socket.c(1442): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1850) : see declaration of 'inet_addr'
+         strlib.c
+         thread.c
+         timer.c
+         utils.c
+         char.c
+         int_auction.c
+         int_elemental.c
+         int_guild.c
+         int_homun.c
+         int_mail.c
+         int_mercenary.c
+         int_party.c
+         int_pet.c
+         int_quest.c
+         int_storage.c
+         inter.c
+         pincode.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\char-server.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\3rdparty\mysql\lib libcmtd.lib oldnames.lib ws2_32.lib libmysql.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\char-server.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\char-server.lib" /MACHINE:X86 /SAFESEH:NO "char-server\Debug\grammar.obj"
+         "char-server\Debug\libconfig.obj"
+         "char-server\Debug\scanctx.obj"
+         "char-server\Debug\scanner.obj"
+         "char-server\Debug\strbuf.obj"
+         "char-server\Debug\mt19937ar.obj"
+         "char-server\Debug\conf.obj"
+         "char-server\Debug\lang.obj"
+         "char-server\Debug\core.obj"
+         "char-server\Debug\console.obj"
+         "char-server\Debug\db.obj"
+         "char-server\Debug\ers.obj"
+         "char-server\Debug\malloc.obj"
+         "char-server\Debug\mapindex.obj"
+         "char-server\Debug\mempool.obj"
+         "char-server\Debug\mutex.obj"
+         "char-server\Debug\nullpo.obj"
+         "char-server\Debug\raconf.obj"
+         "char-server\Debug\random.obj"
+         "char-server\Debug\showmsg.obj"
+         "char-server\Debug\socket.obj"
+         "char-server\Debug\sql.obj"
+         "char-server\Debug\strlib.obj"
+         "char-server\Debug\thread.obj"
+         "char-server\Debug\timer.obj"
+         "char-server\Debug\utils.obj"
+         "char-server\Debug\char.obj"
+         "char-server\Debug\int_auction.obj"
+         "char-server\Debug\int_elemental.obj"
+         "char-server\Debug\int_guild.obj"
+         "char-server\Debug\int_homun.obj"
+         "char-server\Debug\int_mail.obj"
+         "char-server\Debug\int_mercenary.obj"
+         "char-server\Debug\int_party.obj"
+         "char-server\Debug\int_pet.obj"
+         "char-server\Debug\int_quest.obj"
+         "char-server\Debug\int_storage.obj"
+         "char-server\Debug\inter.obj"
+         "char-server\Debug\pincode.obj"
+         char-server.vcxproj -> C:\Users\Jonh\Desktop\GlobalRAG\Brathena antigo\brathena\vcproj-13\..\char-server.exe
+     1>Done Building Project "C:\Users\Jonh\Desktop\GlobalRAG\Brathena antigo\brathena\vcproj-13\char-server.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:01:00.39

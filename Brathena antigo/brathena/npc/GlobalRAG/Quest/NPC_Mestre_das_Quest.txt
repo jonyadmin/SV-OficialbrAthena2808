@@ -1,0 +1,1723 @@
+prontera,131,217,5	script	Mestre das Quest	403,{
+cutin "wish_maiden11.bmp",2;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Olá Todas as Quest de Custom do servidor pode ser feitas comigo";
+mes "Então escolha o tipo de item que você quer e veja do que precisa para ter o mesmo para você";
+inicio:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Que tipo de item você deseja fazer quest?";
+switch(select("Cabeça Cima","Cabeça Cima 2","Cabeça Meio","Cabeça Meio 2","Cabeça Baixo","Calçados","Acessórios","Extra","Fechar")){
+
+case 1:
+// Cabeça Cima
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Cabeça Cima!";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+switch(select("Quest Anjo Mau[4]","Quest Coppola Amarelo[2]","Quest Coppola Azul[2]","Quest Coppola Preto[2]","Quest Coppola Purple[2]","Quest Coppola Verde[2]","Quest Coppola Vermelho[2]","Quest Desbravador[2]","Quest Sygnum[4]","Quest Valquiria Branco[4]","Quest Valquiria Dual[4]","Quest Valquiria Marrom[4]","Quest Valquiria Rosa[4]","Quest Valquiria Preto[4]","Quest Valquiria Verde[4]","Voltar ao Menu","Sair")){
+
+case 1:
+//Elmo Anjo Mau
+next;
+AnjoMau:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Anjo Mau[4]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+
+case 1:
+if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Parabéns, como recompensa tome seu elmo.";
+close2;
+delitem 7025, 1;
+delitem 7511, 150;
+delitem 985, 150;
+delitem 7447, 20;
+delitem 7446, 20;
+delitem 7104, 500;
+delitem 5128, 1;
+set Zeny,Zeny-100000000;
+getitem 21000, 1;
+cutin "",255;
+end;
+	} else {
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Voce ainda nao tem os itens!";
+mes "Volte quando tiver!";
+close2;
+cutin "",255;
+end;
+}
+
+case 2:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Chapeu feito por um ferreiro muito conhecido em Einbroch, Str +30, Agi +15, +60% de dano contra humanoides e feras.";
+next;
+goto AnjoMau;
+end;
+
+case 3:
+next;
+mes "[Itens Requeridos]";
+mes "2 Lamento de lucifer,";
+mes "150x  Runas da Escuridao,";
+mes "150x  Elunium,";
+mes "20x   Bijuterias Vermelhas,";
+mes "20x  Bijuterias Azul,";
+mes "500x  Anjos Fajutas,";
+mes "1x   Elmo de Goibne,";
+mes "100.000.000 zeny,";
+next;
+goto AnjoMau;
+end;
+
+case 4:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes"voce quer experimentar o item Elmo Anjo Mal?";
+switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+
+case 1:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+close2;
+cutin "",255;
+rentitem 21000,30;
+end;
+
+case 2:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 2:
+//Elmo Coppola Amarelo
+next;
+CoppoAmarelo:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Amarelo[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7448) >= 10 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7448, 10;
+        delitem 5128, 1;
+		getitem 21033, 1;
+		cutin "",255;
+		end;
+
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Maldito."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	next;
+	goto CoppoAmarelo;
+	end;
+
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "10x Bijuterias Amarelas,";
+	mes "1x Elmo goibne,";
+	next;
+	goto CoppoAmarelo;
+	end;
+
+ case 4:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Coppola Amarela?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21033,30;
+  cutin "",255;
+ end;
+ 
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Ok volte sempre";
+	close2;
+	cutin "",255;
+	end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 3:
+// Elmo Coppola Azul
+next;
+CoppolaAzul:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Azul[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7448) >= 10 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7446, 10;
+        delitem 5128, 1;
+		getitem 21034, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Agua."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	next;
+	goto CoppolaAzul;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "10x Bijuterias Amarelas,";
+	mes "1x Elmo goibne,";
+	next;
+	goto CoppolaAzul;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"Você quer experimentar o item Coppola Amarela?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+	
+	case 1:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"Ok o item ficará com você por 30 Segundos bom proveito";
+	close2;
+	rentitem 21034,30;
+	 cutin "",255;
+	end;
+ 
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Ok volte sempre";
+	close2;
+	cutin "",255;
+	end;
+	}
+	
+	case 5:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Ok volte sempre que quiser fazer alguma Quest!";
+	close2;
+	cutin "",255;
+	end;
+	}
+
+
+case 4:
+//Elmo Coppola Preto
+next;
+CoppolaPreto:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Preto[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7448) >= 10 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7511, 10;
+        delitem 5128, 1;
+		getitem 21035, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Terra."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	next;
+	goto CoppolaPreto;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "20 Runas da Escuridão,";
+	mes "1x Elmo goibne,";
+	next;
+	goto CoppolaPreto;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Coppola Preta?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21035,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+cutin "",255;
+end;
+}	
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 5:
+// Elmo Coppola Purple
+CoppolaPurple:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Purple[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(910) >= 30 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 910, 30;
+        delitem 5128, 1;
+		getitem 21036, 1;
+		cutin "",255;
+		end;
+	
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Veneno."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	mes "DEF : +3";
+	next;
+	goto CoppolaPurple;
+	end;
+	
+	case 3:
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "30x Garletas,";
+	mes "1x Elmo goibne,";
+	next;
+	goto CoppolaPurple;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Coppola Purple?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21036,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+ cutin "",255;
+ end;
+ }
+ case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 6:
+// Elmo Coppola Verde
+next;
+CoppolaVerde:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Verde[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7445) >= 10 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7445, 10;
+        delitem 5128, 1;
+		getitem 21037, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Vento."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	mes "DEF : +3";
+	next;
+	goto CoppolaVerde;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "10x Bijuterias Verdes,";
+	mes "1x Elmo goibne,";
+	next;
+	goto CoppolaVerde;
+	end;
+	
+case 4:
+next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Coppola verde?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21037,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+cutin "",255;
+end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 7:
+// Elmo Coppola Vermelho
+next;
+CoppolaVerme:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Coppola Vermelho[2]";
+mes "Otimo item para qual classe?:Todas";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7447) >= 10 && countitem(5128) >= 1) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "toma esse elmo e não me pertube mais!!!!";
+		close2;
+		delitem 7025, 1;
+			delitem 7447, 10;
+			delitem 5128, 1;
+			getitem 21038, 1;
+			cutin "",255;
+			end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Reduz em 10% de dano em humanóides";
+	mes "Adiciona 10% de defesa contra a propriedade Fogo."; 
+	mes "VIT : +20";
+	mes "DES : +15";
+	mes "INT : +15";
+	mes "DEF : +3";
+	next;
+	goto CoppolaVerme;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "10x Bijuterias Vermelhas,";
+	mes "1x Elmo Goibne,";
+	next;
+	goto CoppolaVerme;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"Você quer experimentar o item Coppola Amarela?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21038,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+	close2;
+	cutin "",255;
+	end;
+ }
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+case 8:
+// Elmo Desbravador
+next;
+Desbrava:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Desbravador[2]";
+mes "Otimo item para: Matar MVP";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	
+	case 1:
+	if (countitem(7266) >= 100 && countitem(7340) >= 100 && countitem(7209) >= 50 && countitem(731) >= 50) && countitem(983) >= 5 && countitem(975) >= 5 && countitem(7101) >= 20 && countitem(12061) >= 1 {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7266, 100;
+		delitem 7340, 100;
+		delitem 7209, 50;
+		delitem 731,  50;
+		delitem 983, 5;
+		delitem 975, 5;
+		delitem 7101, 20;
+		delitem 12061, 1;
+		getitem 21064, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Adiciona em 50% do ataque causado a monstros boss, entretanto, recebe 50% mais dano de monstros normais.";
+	mes "INT : +20";
+	mes "STR : +20";
+	mes "DEX : +20"; 
+	mes "LUK : +10"; 
+	mes "AGI : +10"; 
+	mes "DEF : +15";
+	next;
+	goto Desbrava;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "100 Dentadura da Máscara do Dragão,";
+	mes "100 Desejo das Trevas,";
+	mes "50  Elmo de Dullahan,";
+	mes "50  Diamante de 2 quilates,";
+	mes "5   Tintura Preta,";
+    mes "5   Tintura Vermelha,";
+    mes "20  Pena de Grand Peco,";
+    mes "1   Suco de uva e mel,";
+	next;
+	goto Desbrava;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Elmo Desbravador?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21064,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+cutin "",255;
+end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+
+
+case 9:
+// Elmo do Rei Sygnun
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo do Rei Sygnun[4]";
+mes "Otimo item para: PvP";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	 next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	if (countitem(7025) >= 1 && countitem(7447) >= 30 && Zeny >= 50000000 && countitem(7420) >= 50 && countitem(710) >= 1) {
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7448, 30;
+        delitem 7447, 30;
+		set Zeny,Zeny-50000000;
+        delitem 7420, 50;
+		delitem 710, 2;
+		getitem 21053, 2;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close;
+	}
+	case 2:
+	 next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Atributos";
+	mes "Elmo usado pelo Rei Sygnun em batalhas. Simbolo de poder e força. Concede: STR +30, AGI +15, DEX +10, +60% de dano contra humanos, humanides e feras.";
+	next;
+	goto Desbrava;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "30x Bijuterias Vermelhas,";
+	mes "50.000.000 zeny";
+	mes "50 Caveiras,";
+	mes "1 Flor das Ilusões,";
+	next;
+	goto Desbrava;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Elmo Synun[1]?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21053,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close;
+ }
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 10:
+//elmo valquiria branco
+ValkiBranco:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Branco[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+		getitem 21020, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos.";
+	next;
+	goto ValkiBranco;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValkiBranco;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"voce quer experimentar o item Elmo Valquiria Branco?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21020,30;
+  cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+ cutin "",255;
+ end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 11:
+// Valquiria Dual
+next;
+ValquiDual:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Dual[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+		getitem 21066, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos.";
+	next;
+	goto ValquiDual;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValquiDual;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"voce quer experimentar o item Elmo Valquiria Dual?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21066,30;
+ cutin "",255;
+ end;
+ 
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Ok volte sempre";
+	close2;
+	cutin "",255;
+	end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 12:
+// Elmo Valquiria Marrom
+ValkiMarrom:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Marrom[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+		getitem 21021, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	mes "Atributos";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos. 10% + resistencia a Neutro";
+	next;
+	goto ValkiMarrom;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValkiMarrom;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"voce quer experimentar o item Elmo Valquiria Marrom?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21021,30;
+ cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+close2;
+cutin "",255;
+end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+
+case 13:
+// Elmo Valquiria Rosa
+ValkiRosa:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Rosa[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+		getitem 21023, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos.";
+	next;
+	goto ValkiRosa;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValkiRosa;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"voce quer experimentar o item Elmo Valquiria Rosa?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21023,30;
+ cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+close2;
+cutin "",255;
+end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 14:
+//Elmo Valquiria Preto
+next;
+ValkiPreto:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Preto[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+				getitem 21022, 1;
+				cutin "",255;
+				end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos. 10% + resistencia a Neutro";
+	next;
+	goto ValkiPreto;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValkiPreto;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"voce quer experimentar o item Elmo Valquiria Preto?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21022,30;
+ cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+close2;
+cutin "",255;
+end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 15:
+//Elmo Valquiria Verde
+next;
+ValkiVerde:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Valquiria Verde[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7511) >= 150 && countitem(985) >= 150 && countitem(7447) >= 20 && countitem(7446) >= 20 && countitem(7104) >= 500 && countitem(7447) >= 20 && countitem(5128) >= 1 && Zeny >= 100000000) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+				delitem 7025, 1;
+                delitem 7511, 150;
+                delitem 985, 150;
+                delitem 7447, 20;
+                delitem 7446, 20;
+                delitem 7104, 500;
+                delitem 5128, 1;
+				set Zeny,Zeny-100000000;
+				getitem 21024, 1;
+				cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Voce ainda nao tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "O chapéu das juízas enviadas por Odin para a escolha dos grandes heróis merecedores do Valhalla. Todos os Atributos +15, 60% a mais de dano em humanos.";
+	next;
+	goto ValkiVerde;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "2 Lamento de lucifer,";
+	mes "150x  Runas da Escuridao,";
+	mes "150x  Elunium,";
+	mes "20x   Bijuterias Vermelhas,";
+	mes "20x  Bijuterias Azul,";
+    mes "500x  Anjos Fajutas,";
+    mes "1x   Elmo de Goibne,";
+	mes "100.000.000 zeny,";
+	next;
+	goto ValkiVerde;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"voce quer experimentar o item Elmo Valquiria Verde?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Nao")) {
+ case 1:
+ mes"Ok o item ficará com voce por 30 Segundos bom proveito";
+ close2;
+ rentitem 21024,30;
+ cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+ close2;
+ cutin "",255;
+ end;
+}
+
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 16:
+goto inicio;
+end;
+
+case 17:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+
+case 2:
+// Cabeça Cima 2
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Cabeça Cima Parte 2!";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+switch(select("Quest Elmo dos Ossos[4]","Quest Black Power[2]","Quest Dragão Terra[4]","Quest Valquiria Azul[4]","Quest Dragão Vento[4]","Quest Merlin Azul[4]","Quest Raposa Branca[4]","Quest Raposa Negra[4]","Quest Raposa Vermelha[4]","Quest Bandana do Kakashi[4]","Quest Chapeu Luigi[4]","Quest Chapeu Mario[4]","Voltar ao Menu","Sair")){
+
+case 1:
+//Elmo dos Ossos
+next;
+Elmoosso:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo dos Ossos[4]";
+mes "Otimo item para: PvP e Woe";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(7420) >= 200 && countitem(932) >= 1000 && countitem(7445) >= 10 && countitem(7447) >= 10 && countitem(7448) >= 10) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 7420, 200;
+        delitem 932, 1000;
+        delitem 999, 200;
+        delitem 7445, 10;
+        delitem 7447, 10;
+        delitem 7448, 10;
+		getitem 21058, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes "Este anjo representa o lado negro da força, que tem como único objetivo, destruir todos. Concede: VIT:+20, SOR:+10, STR:+10, INT:+30, e 30% a mais de Dano em Humanoide.";
+	next;
+	goto Elmoosso;
+	end;
+	
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1 Lamento de lucifer,";
+	mes "200  Caveiras,";
+	mes "1000 Ossos,";
+	mes "200  Aços,";
+	mes "10   Bijuterias Verdes,";
+    mes "10   Bijuterias Vermelhas,";
+    mes "10   Bijuterias Amarelas,";
+	next;
+	goto Elmoosso;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Elmo de Ossos?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21058,30;
+ cutin "",255;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+close2;
+cutin "",255;
+end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+case 2:
+//Black Power
+next;
+Power:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você escolheu o item Elmo Black Power[2]";
+mes "Otimo item para: PvP e Visual";
+mes "Deseja fazer a quest?";
+	switch(select("[^339966+^000000]Sim:[^339966+^000000]Ver Atributo do Item:[^339966+^000000]Itens Requeridos:[^339966+^000000]Experimentar Item:[^339966+^000000]Não")) {
+	case 1:
+	if (countitem(7025) >= 1 && countitem(1020) >= 100) {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Parabéns, como recompensa tome seu elmo.";
+		close2;
+		delitem 7025, 1;
+        delitem 1020, 100;
+        getitem 21049, 1;
+		cutin "",255;
+		end;
+		
+	} else {
+		next;
+		mes "[^FF8000Mestre das Quest^000000]";
+		mes "Você ainda não tem os itens!";
+		mes "Volte quando tiver!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	case 2:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+	mes"Hat Afro, conhecido tambem como BlackPower, quem usa este hat não consegue passar sem ser percebido. Concede: DEX:+10, STR:+10, VIT:+5";
+	next;
+	goto Power;
+	end;
+
+	case 3:
+	next;
+	mes "[Itens Requeridos]";
+	mes "1x Lamento de lucifer,";
+	mes "1000x Cabelos Morenos,";
+	next;
+	goto Power;
+	end;
+	
+	case 4:
+	next;
+	mes "[^FF8000Mestre das Quest^000000]";
+ mes"Você quer experimentar o item Afro Hat?";
+ switch(select("[^339966+^000000]Sim:[^339966+^000000]Não")) {
+ 
+ case 1:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes"Ok o item ficará com você por 30 Segundos bom proveito";
+ close2;
+ rentitem 21049,30;
+ end;
+ 
+ case 2:
+ next;
+ mes "[^FF8000Mestre das Quest^000000]";
+ mes "Ok volte sempre";
+close2;
+cutin "",255;
+end;
+}
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+case 3:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 4:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 5:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 6:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 7:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 8:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 9:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 10:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 11:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+case 12:
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 13:
+goto inicio;
+end;
+
+case 14:
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+
+
+case 3:
+//Cabeça Meio
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Cabeça Meio";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 4:
+//Cabeça Meio 2
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Cabeça Meio Parte 2";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 5:
+//Cabeça Baixo
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Cabeça Baixo";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 6:
+//Calçados
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Calçados";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 7:
+//Acessórios
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens de Acessórios";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 8:
+//Extra
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Você está na Sessão de Quest Para itens Extra";
+mes "Escolha qual Quest de Elmos Deseja Fazer:";
+next;
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+
+case 9:
+//Fechar
+mes "[^FF8000Mestre das Quest^000000]";
+mes "Ok volte sempre que quiser fazer alguma Quest!";
+close2;
+cutin "",255;
+end;
+}
+}

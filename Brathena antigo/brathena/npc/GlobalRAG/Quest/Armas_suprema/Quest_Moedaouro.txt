@@ -1,0 +1,135 @@
+payon,82,330,3	script	Petrus	48,{
+ 
+if(.supremo2==1) goto supremo2;
+if(acabou==1){
+mes "Bom trabalho, Aventureiro!";
+close;
+}
+
+mes "[Petrus]";
+mes "Olá, "+strcharinfo(0)+",Muitos Falam em forjar Armas Supremas.";
+next;
+mes "[Petrus]";
+mes "Então você quer criar uma Arma suprema ne?... essas Armas são muito forte...";
+next;
+mes "[Petrus]";
+mes "Você deseja ir em busca da sua ^FF0000Arma Suprema^000000";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes "[Petrus]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes "Se você me fizer um favor posso te fala onde fica a ^FF0000Fornalha^000000 lá você pode fazer Fundições de ouro e prata para sua Arma Suprema!";
+next;
+switch(select("Sim Quero Ajudar:Não obrigado")) {
+
+case 2:
+mes "[Petrus]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+set .item,rand(1,4);
+if(.item==1){
+set .in,1;
+}
+if(.item==2){
+set .in,2;
+}
+if(.item==3){
+set .in,3;
+}
+if(.item==4){
+set .in,4;
+}
+mes "[Petrus]";
+if(.in==1){
+mes "Me Traga 150 ^FF0000Argola.^000000 e 1 Moeda de Prata";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Ouro";
+}
+if(.in==2){
+mes "Me Traga 250 ^FF0000Jubileu.^000000 e 1 Moeda de Prata";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Ouro";
+}
+if(.in==3){
+mes "Me Traga 150 ^FF0000Elunium.^000000 e 1 Moeda de Prata";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Ouro";
+}
+if(.in==4){
+mes "Me Traga 5 ^FF0000Biotita.^000000 e 1 Moeda de Prata";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei 1 Moeda de Ouro";
+}
+mes "Estarei esperando!";
+close2;
+set .supremo2,1;
+end;
+}
+ 
+supremo2:
+mes "[Petrus]";
+if(.in==1){
+if(countitem(675)<1 && countitem(941) >= 150){
+mes "Você não trouxe os 150 ^FF0000Argola.^000000! ou 1 Moeda de Prata";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 675,1;
+delitem 941,150;
+mes "Parabéns aqui Esta 1 Moeda de Ouro vá até A Fornalha para continua a Quest";
+getitem 671, 1;
+dispbottom "A Fornalha fica no Mapa warp einbroch 160 300";
+set .supremo2,0;
+close;
+}
+}
+if(.in==2){
+if(countitem(675)<1 && countitem(7312) >= 250){
+mes "Você não trouxe os 250 ^FF0000Jubileu.^000000! ou 1 Moeda de Prata";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 675,1;
+delitem 7312,250;
+mes "Parabéns aqui Esta 1 Moeda de Ouro vá até A Fornalha para continua a Quest";
+getitem 671, 1;
+dispbottom "A Fornalha fica no Mapa warp einbroch 160 300";
+set .supremo2,0;
+close;
+}
+}
+if(.in==3){
+if(countitem(675)<1 && countitem(985) >= 150){
+mes "Você não trouxe os 150 ^FF0000Elunium.^000000! ou 1 Moeda de Prata";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 675,1;
+delitem 985,150;
+mes "Parabéns aqui Esta 1 Moeda de Ouro vá até A Fornalha para continua a Quest";
+getitem 671, 1;
+dispbottom "A Fornalha fica no Mapa warp einbroch 160 300";
+set .supremo2,0;
+close;
+}
+}
+if(.in==4){
+if(countitem(675)<1 && countitem(7297) >= 5){
+mes "Você não trouxe os 5 ^FF0000Biotita.^000000! ou 1 Moeda de Prata";
+mes "Volte quando tiver";
+close;
+} else {
+delitem 675,1;
+delitem 7297,5;
+mes "Parabéns aqui Esta 1 Moeda de Ouro vá até A Fornalha para continua a Quest";
+getitem 671, 1;
+dispbottom "A Fornalha fica no Mapa warp einbroch 160 300";
+set .supremo2,0;
+close;
+}
+}
+}
+}

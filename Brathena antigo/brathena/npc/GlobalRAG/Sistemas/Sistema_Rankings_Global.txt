@@ -1,0 +1,345 @@
+/////PVP SEM CUSTOM ////////
+-	script	PlayerLadderOrigem	-1,{
+OnPCKillEvent:    
+getmapxy @map$,@x,@y,0;    
+set @Found,0;
+setarray $@SoundList$[0],"First Blood.wav","Double Kill.wav","Triple Kill.wav","Mega Kill.wav","Ultra Kill.wav","Killing Spree.wav","Ownage.wav","Holy Shit.wav","God Like.wav","Dominating.wav","Unstoppable.wav","Monster Kill.wav";	// SOUNDS        
+setarray .@Score[0], 1, 2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 50;	// Pontos para cada Sound
+for(set @i,0; @i < getarraysize($pvp_Origem_map$); set @i,@i+1)           
+if(@map$==$pvp_Origem_map$[@i]){
+		set @variavelpoints,@variavelpoints+1;
+		query_sql "SELECT `char_id` FROM `ranking_origens` ORDER BY `kills` DESC LIMIT 100",@PvP_CharID;
+			if( @variavelpoints == .@Score[0] ){ 
+				soundeffectall $@SoundList$[0],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | First Blood ! [ Ranking Origem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | First Blood ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+
+			if( @variavelpoints == .@Score[1] ){ 
+				soundeffectall $@SoundList$[1],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Double Kill ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Double Kill ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+
+
+
+			if( @variavelpoints == .@Score[2] ){
+				soundeffectall $@SoundList$[2],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Triple Kill ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Triple Kill ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+
+
+
+
+			if( @variavelpoints == .@Score[3] ){ 
+				soundeffectall $@SoundList$[3],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Mega Kill ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Mega Kill ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+
+			if( @variavelpoints == .@Score[4] ){ 
+				soundeffectall $@SoundList$[4],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Ultra Kill ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Ultra Kill ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+			
+			if( @variavelpoints == .@Score[5] ){ 
+				soundeffectall $@SoundList$[5],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Killing Spree ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Killing Spree ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+			
+			if( @variavelpoints == .@Score[6] ){ 
+				soundeffectall $@SoundList$[6],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Ownage ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Ownage ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+			
+			if( @variavelpoints == .@Score[7] ){ 
+				soundeffectall $@SoundList$[7],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Holy Shit ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Holy Shit ! [ Você Não Esta no Ranking ainda ]";
+				}					
+			}
+			
+			if( @variavelpoints == .@Score[8] ){
+				soundeffectall $@SoundList$[8],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | God Like ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | God Like ! [ Você Não Esta no Ranking ainda ]";
+				}		
+			}
+			
+			if( @variavelpoints == .@Score[9] ){ 
+				soundeffectall $@SoundList$[9],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Dominando ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Dominando ! [ Você Não Esta no Ranking ainda ]";
+				}		
+			}
+			
+			if( @variavelpoints == .@Score[10] ){
+				soundeffectall $@SoundList$[10],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Unstoppable ! [ Ranking Oringem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Unstoppable ! [ Você Não Esta no Ranking ainda ]";
+				}		
+			}
+			
+			if( @variavelpoints == .@Score[11] || @variavelpoints > .@Score[11]){ 
+				soundeffectall $@SoundList$[11],0;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+				if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Monster Kill ! [ Ranking Oringem: "+(.@k+1)+"° ]"; 
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | Monster Kill ! [ Você Não Esta no Ranking ainda ]";
+				}	
+			}
+		set @Found,1;               
+	break;            
+}
+    
+if(!@Found)        
+end;    
+query_sql "SELECT `kills`,`name_player` FROM `ranking_origens` WHERE `char_id`="+getcharid(0),@ppoints,@name$;   
+if( @name$ == "" ){    
+query_sql "INSERT INTO `ranking_origens` (`char_id`,`name_player`,`kills`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";
+}else{    
+query_sql "UPDATE `ranking_origens` set `kills` = `kills` +1 WHERE `char_id`="+getcharid(0); 
+}   
+attachrid killedrid;    
+query_sql "SELECT `mortes`,`name_player` FROM `ranking_origens` WHERE `char_id`="+getcharid(0),@ppoints,@name$;    
+if(@name$ == "" ){    
+query_sql "INSERT INTO `ranking_origens` (`char_id`,`name_player`,`mortes`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{    
+query_sql "UPDATE `ranking_origens` set `mortes` = `mortes` + 1 WHERE `char_id`="+getcharid(0);
+}
+//Ranking Classes//
+query_sql "SELECT `kills`,`name_player` FROM `ranking_classes` WHERE `char_id`="+getcharid(0),@pontos,@name2$;
+if( @name2$ == "" ) {   
+query_sql "INSERT INTO `ranking_classes` (`char_id`,`name_player`,`kills`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{  
+query_sql "UPDATE `ranking_classes` set `kills` = `kills` +1 WHERE `char_id`="+getcharid(0);
+}    
+attachrid killedrid;    
+query_sql "SELECT `mortes`,`name_player` FROM `ranking_classes` WHERE `char_id`="+getcharid(0),@pontos,@name2$;    
+if(@name2$ == "" ){    
+query_sql "INSERT INTO `ranking_classes` (`char_id`,`name_player`,`mortes`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{    
+query_sql "UPDATE `ranking_classes` set `mortes` = `mortes` + 1 WHERE `char_id`="+getcharid(0);
+}
+set @variavelpoints,0;
+end;
+OnInit:        
+setarray $pvp_Origem_map$[0],"pvp_n_5-5";
+end;
+}
+
+/////PVP EXTREME ////////
+-	script	PlayerLadderextreme	-1,{
+OnPCKillEvent: 
+if( strcharinfo(3) != "pvp_n_3-5" ) end;
+specialeffect2 EF_HEAL2; 
+percentheal 100,100;   
+getmapxy @map$,@x,@y,0;    
+set @Found,0;
+setarray $@SoundList$[0],"First Blood.wav","Double Kill.wav","Triple Kill.wav","Mega Kill.wav","Ultra Kill.wav","Killing Spree.wav","Ownage.wav","Holy Shit.wav","God Like.wav","Dominating.wav","Unstoppable.wav","Monster Kill.wav";	// SOUNDS        
+setarray .@Score[0], 1, 2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 50;	// Pontos para cada Sound    
+for(set @i,0; @i < getarraysize($pvp_exe_map$); set @i,@i+1)            
+if(@map$==$pvp_exe_map$[@i]){
+set @variavelpoints,@variavelpoints+1;
+if( @variavelpoints == .@Score[0] ){ 
+soundeffectall $@SoundList$[0],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | First Blood ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[1] ){ 
+soundeffectall $@SoundList$[1],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Double Kill ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[2] ){
+soundeffectall $@SoundList$[2],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Triple Kill ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[3] ){ 
+soundeffectall $@SoundList$[3],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Mega Kill ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[4] ){ 
+soundeffectall $@SoundList$[4],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Ultra Kill ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[5] ){ 
+soundeffectall $@SoundList$[5],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Killing Spree ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[6] ){ 
+soundeffectall $@SoundList$[6],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Ownage ! [ Ranking do player aqui ]";
+}
+if( @variavelpoints == .@Score[7] ){ 
+soundeffectall $@SoundList$[7],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Holy Shit ! [ Ranking do player aqui ]";	
+}							
+if( @variavelpoints == .@Score[8] ){
+soundeffectall $@SoundList$[8],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | God Like ! [ Ranking do player aqui ]";	
+}								
+if( @variavelpoints == .@Score[9] ){ 
+soundeffectall $@SoundList$[9],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Dominando ! [ Ranking do player aqui ]";	
+}							
+if( @variavelpoints == .@Score[10] ){
+soundeffectall $@SoundList$[10],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Unstoppable ! [ Ranking do player aqui ]";	
+}						
+if( @variavelpoints == .@Score[11] || @variavelpoints > .@Score[11]){ 
+soundeffectall $@SoundList$[11],0;
+dispbottom "[PvP Extreme]: "+strcharinfo(0)+" | Monster Kill ! [ Ranking do player aqui ]"; 
+}
+set @Found,1;                
+break;            
+}    
+if(!@Found)        
+end;
+query_sql "SELECT `kills`,`name_player` FROM `ranking_pvp_extreme` WHERE `char_id`="+getcharid(0),@ppoints,@name$;    
+if( @name$ == "" )    
+query_sql "INSERT INTO `ranking_pvp_extreme` (`char_id`,`name_player`,`kills`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+if( @gname$ == "" )    
+query_sql "UPDATE `ranking_pvp_extreme` set `kills` = `kills` +1 WHERE `char_id`="+getcharid(0);
+attachrid killedrid;    
+query_sql "SELECT `mortes`,`name_player` FROM `ranking_pvp_extreme` WHERE `char_id`="+getcharid(0),@ppoints,@name$;    
+if(@name$ == "" )    
+query_sql "INSERT INTO `ranking_pvp_extreme` (`char_id`,`name_player`,`mortes`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+if(@gname$ == "" )    
+query_sql "UPDATE `ranking_pvp_extreme` set `mortes` = `mortes` + 1 WHERE `char_id`="+getcharid(0);
+set @variavelpoints,0;
+end;
+
+OnInit:        
+setarray $pvp_exe_map$[0],"pvp_n_3-5";
+end;
+}
+///// TOP MVP ////////
+-	script	PlayerscriptMVP	-1,{
+OnInit:
+setarray $mvp_list[0],1038,1039,1046,1059,1086,1087,1096,1112,1115,1120,1147,1150,1991,1157,1159,1190,1251,1252,1272,1312,1373,1388,1389,1418,1492,1511,1582,1583,1623,1630,1658,1685,1688,1708,1719,1734,1751,1768,1779,1785,1832,1871,1873,1885,1917,2022,2068,2087,2131,2156,2165,2194,2202;
+end;
+
+OnNPCKillEvent:
+for(set @i, 0; @i < getarraysize( $mvp_list ); set @i, @i+1){
+if (killedrid == $mvp_list[@i]) {
+query_sql( "INSERT INTO `e-mvprank` SET `char_id`='"+getcharid(0)+"',`name`='"+strcharinfo(0)+"',`Count`='1' ON DUPLICATE KEY UPDATE `Count`=`Count`+1" );
+dispbottom "[ RagnaChaos ] Parabéns Você ganhou +1 Ponto no Ranking MVP";
+}
+}
+}

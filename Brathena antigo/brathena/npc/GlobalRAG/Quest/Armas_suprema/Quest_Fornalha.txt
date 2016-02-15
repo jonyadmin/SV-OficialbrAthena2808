@@ -1,0 +1,150 @@
+einbroch,157,301,3	script	Fornalha	1617,{
+
+if(.supremo3==1) goto supremo3;
+if(acabou==1){
+mes "Bom trabalho, Aventureiro!";
+close;
+}
+
+mes "[Fornalha]";
+mes "Olá, "+strcharinfo(0)+",Muitos Falam em forjar Armas Supremas.";
+next;
+mes "[Fornalha]";
+mes "Então você quer criar uma Arma suprema ne?... essas Armas são muito forte...";
+next;
+mes "[Fornalha]";
+mes "Você deseja ir em busca da sua ^FF0000Arma Suprema^000000";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes "[Fornalha]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes "Se você me fizer um favor posso te fala onde fica o ^FF0000Purificador de Armas^000000 lá você pode fazer Terminar sua Quest para sua Arma Suprema!";
+next;
+switch(select("Sim Quero Ajudar:Não obrigado")) {
+
+case 2:
+mes "[Fornalha]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+set .item,rand(1,3);
+if(.item==1){
+set .in,1;
+}
+if(.item==2){
+set .in,2;
+}
+if(.item==3){
+set .in,3;
+}
+mes "[Fornalha]";
+if(.in==1){
+mes "Me Traga 10 ^FF0000Ouro.^000000 e 1 Moeda de Ouro";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei uma Fundição";
+}
+if(.in==2){
+mes "Me Traga 20 ^FF0000Colher de prata.^000000 e 1 Moeda de Ouro";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei uma Fundição";
+}
+if(.in==3){
+mes "Me Traga 20 ^FF0000Minério de Prata.^000000 e 1 Moeda de Ouro";
+mes "Quando tiver os itens volte e fale comigo. Que eu te darei uma Fundição";
+}
+mes "Estarei esperando!";
+close2;
+set .supremo3,1;
+end;
+}
+ 
+supremo3:
+mes "[Fornalha]";
+if(.in==1){
+if(countitem(671)>=1 && countitem(969)>=10){
+delitem 671, 1;
+delitem 969, 10;
+mes "Parabéns aqui Esta 1 Fundição";
+set .fun,rand(1,4);
+if(.fun==1){
+getitem 19161,1;
+}
+if(.fun==2){
+getitem 19160,1;
+}
+if(.fun==3){
+getitem 19160,1;
+}
+if(.fun==4){
+getitem 19160,1;
+}
+dispbottom "O Purificador de Armas fica no Mapa warp ra_temsky 129 102";
+set .supremo3,0;
+close;
+} else {
+mes "Você não trouxe os 10 ^FF0000Ouro.^000000! ou 1 Moeda de Ouro";
+mes "Volte quando tiver";
+close;
+}
+}
+if(.in==2){
+if(countitem(671)>=1 && countitem(7880)>= 20){
+delitem 671, 1;
+delitem 7880, 20;
+mes "Parabéns aqui Esta 1 Fundição";
+set .fun,rand(1,4);
+if(.fun==1){
+getitem 19161,1;
+}
+if(.fun==2){
+getitem 19160,1;
+}
+if(.fun==3){
+getitem 19160,1;
+}
+if(.fun==4){
+getitem 19160,1;
+}
+dispbottom "O Purificador de Armas fica no Mapa warp ra_temsky 129 102";
+set .supremo3,0;
+close;
+} else {
+mes "Você não trouxe os 20 ^FF0000Colher de prata.^000000! ou 1 Moeda de Ouro";
+mes "Volte quando tiver";
+close;
+}
+}
+if(.in==3){
+if(countitem(671)>=1 && countitem(7232)>= 20){
+delitem 671, 1;
+delitem 7232, 20;
+mes "Parabéns aqui Esta 1 Fundição";
+set .fun,rand(1,4);
+if(.fun==1){
+getitem 19161,1;
+}
+if(.fun==2){
+getitem 19160,1;
+}
+if(.fun==3){
+getitem 19160,1;
+}
+if(.fun==4){
+getitem 19160,1;
+}
+dispbottom "O Purificador de Armas fica no Mapa warp ra_temsky 129 102";
+set .supremo3,0;
+close;
+} else {
+mes "Você não trouxe os 20 ^FF0000Minério de Prata.^000000! ou 1 Moeda de Ouro";
+mes "Volte quando tiver";
+close;
+}
+}
+end;
+}
+}

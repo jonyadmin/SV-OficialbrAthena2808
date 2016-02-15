@@ -1,0 +1,195 @@
+prontera,145,201,6	script	Teleporte WOE	894,{
+emotion 52;
+mes "[^FF8000Kafra WoE^000000]";
+mes "Olá, ^0000CD"+strcharinfo(0)+"^000000 Selecione o serviço:";
+next;
+switch(select("Teleporte Woe:Quando Tem WOE?:Dono do Castelo:Nada obrigado.")) {
+ 
+case 1:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Para a WOE de que dia você deseja ser Teleportado?";
+next;
+switch(select("Terça:Quinta:Sabado:Domingo")) {
+ 
+//Prontera
+ 
+case 1:
+mes "[^FF8000Teleporte WOE^000000]";
+mes "Pra qual castelo deseja ir,Lenbrando que a 1.0 ea primeira woe de 14:00 as 15:00 ea woe 2.0 ea woe de 19:00 as 20:00 bom jogo.";
+next;
+switch(select("[Tarde 1.0]Brynhildr:[Noite 2.0]Himinn:Nenhum")) {
+ 
+//Castelos de Terça
+ 
+case 1:
+warp "prt_gld", 153, 132;
+close;
+
+case 2:
+warp "sch_gld", 293, 99;
+close;
+
+case 3:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Ok, volte sempre.";
+close;
+ 
+}
+// Quinta
+case 2:
+mes "[^FF8000Teleporte WOE^000000]";
+mes "Pra qual castelo deseja ir,Lenbrando que a 1.0 ea primeira woe de 14:00 as 15:00 ea woe 2.0 ea woe de 19:00 as 20:00 bom jogo.";
+next;
+switch(select("[Tarde 1.0]Palácio da Sombra:[Noite 2.0]Andlangr:Nenhum")) {
+ 
+//Castelos de Quinta
+ 
+case 1:
+warp "pay_gld", 318, 294;
+close;
+
+case 2:
+warp "sch_gld", 288, 253;
+close;
+
+case 3:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Ok, volte sempre.";
+close;
+ 
+}
+// Sabado
+case 3:
+mes "[^FF8000Teleporte WOE^000000]";
+mes "Pra qual castelo deseja ir,Lenbrando que a 1.0 ea primeira woe de 14:00 as 15:00 ea woe 2.0 ea woe de 19:00 as 20:00 bom jogo.";
+next;
+switch(select("[Tarde 1.0]Saffran:[Noite 2.0]Skatyrnir:Nenhum")) {
+ 
+//Castelos de sabado
+ 
+case 1:
+warp "gef_fild13", 191, 275;
+close;
+
+case 2:
+warp "sch_gld", 71, 315;
+close;
+
+case 3:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Ok, volte sempre.";
+close;
+ 
+}
+// Domingo
+case 4:
+mes "[^FF8000Teleporte WOE^000000]";
+mes "Pra qual castelo deseja ir,Lenbrando que a 1.0 ea primeira woe de 14:00 as 15:00 ea woe 2.0 ea woe de 19:00 as 20:00 bom jogo.";
+next;
+switch(select("[Tarde 1.0]Sirius:[Noite 2.0]Mardol:Nenhum")) {
+ 
+//Castelos de Domingo
+ 
+case 1:
+warp "alde_gld", 48, 84;
+close;
+
+case 2:
+warp "aru_gld", 159, 269;
+close;
+
+case 3:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Ok, volte sempre.";
+close;
+ 
+}
+//
+OnInit:
+waitingroom "Venha WOE!",0;
+end;
+ 
+}
+ 
+//NADA
+ 
+case 2:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Todas Terça,Quinta,Sabado e Domingo, A woe 1.0 e de 14:00 as 15:00 ea 2.0 e de 19:00 as 20:00 Qualquer outra Dúvida procure um GM ou reporte no Fórum obrigado Divirta-se";
+close;
+
+case 3:
+mes "[^FF8000Kafra WoE^000000]";
+mes "[^^Castelo |||| Clã Dono^^]";
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Brynhildr'",.@Castle_id;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id+"'",.@Guild_id;
+if(.@Guild_id == 0){
+mes "[1.0 Brynhildr] Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id+"'",.@Name_Guild$;
+mes "[1.0 Brynhildr] Dono:[^0000CD"+.@Name_Guild$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Palácio da Sombra'",.@Castle_id1;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id1+"'",.@Guild_id1;
+if(.@Guild_id1 == 0){
+mes "[1.0 P.da Sombra]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id1+"'",.@Name_Guild1$;
+mes "[1.0 P.da Sombra]Dono:[^0000CD"+.@Name_Guild1$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Saffran'",.@Castle_id2;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id2+"'",.@Guild_id2;
+if(.@Guild_id2 == 0){
+mes "[1.0 Saffran]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id2+"'",.@Name_Guild2$;
+mes "[1.0 Saffran]Dono:[^0000CD"+.@Name_Guild2$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Sirius'",.@Castle_id3;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id3+"'",.@Guild_id3;
+if(.@Guild_id3 == 0){
+mes "[1.0 Sirius]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id3+"'",.@Name_Guild3$;
+mes "[1.0 Sirius]Dono:[^0000CD"+.@Name_Guild3$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Himinn'",.@Castle_id4;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id4+"'",.@Guild_id4;
+if(.@Guild_id4 == 0){
+mes "[2.0 Himinn]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id4+"'",.@Name_Guild4$;
+mes "[2.0 Himinn]Dono:[^0000CD"+.@Name_Guild4$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Andlangr'",.@Castle_id5;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id5+"'",.@Guild_id5;
+if(.@Guild_id5 == 0){
+mes "[2.0 Andlangr]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id5+"'",.@Name_Guild5$;
+mes "[2.0 Andlangr]Dono:[^0000CD"+.@Name_Guild5$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Skatyrnir'",.@Castle_id6;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id6+"'",.@Guild_id6;
+if(.@Guild_id6 == 0){
+mes "[2.0 Skatyrnir]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id6+"'",.@Name_Guild6$;
+mes "[2.0 Skatyrnir]Dono:[^0000CD"+.@Name_Guild6$+"^000000]";
+}
+query_sql "SELECT `CastleID` FROM `castle_db` WHERE `CastleName`='Mardol'",.@Castle_id7;
+query_sql "SELECT `guild_id` FROM `guild_castle` WHERE `castle_id`='"+.@Castle_id7+"'",.@Guild_id7;
+if(.@Guild_id7 == 0){
+mes "[2.0 Mardol]Dono:[^FF8000Sem Dono^000000]";
+} else {
+query_sql "SELECT `name` FROM `guild` WHERE `guild_id`='"+.@Guild_id7+"'",.@Name_Guild7$;
+mes "[2.0 Mardol]Dono:[^0000CD"+.@Name_Guild7$+"^000000]";
+}
+close;
+
+case 4:
+mes "[^FF8000Kafra WoE^000000]";
+mes "Tudo bem até mais.";
+close;
+}
+}

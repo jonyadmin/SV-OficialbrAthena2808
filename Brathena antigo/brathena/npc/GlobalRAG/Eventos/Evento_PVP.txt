@@ -1,0 +1,112 @@
+prontera,140,164,4	script	Evento PvP	827,{set .@Name$,strcharinfo(0);
+if (getgmlevel() < 10){goto nogm;}
+mes "[EVENTO PVP]";
+mes "Olá sou o o Npc que te ajuda com eventos de pvp! o que deseja fazer caro GM?";
+switch(select("[^339966+^000000]Me leve até lá:[^339966+^000000]Abrir Portal?:[^339966+^000000]Informações:[^339966+^000000]Sair")){
+
+case 1:
+next;
+mes "[EVENTO PVP]";
+mes "Ok vou te lár até lá";
+close2;
+warp "guild_vs2",0,0;
+end;
+
+case 2:
+next;
+mes "[EVENTO PVP]";
+mes "Ok vou abrir o portal para fecha-lo e só ir na opção Fechar portal no Npc Gerenciador ja no mapa do evento!";
+mes "o portal será aberto do meu lado!";
+close2;
+announce "[ GlobalRAG ] O evento PvP foi Iniciado! pelo GM:"+.@Name$+" Vamos Todos para o Evento PVP!",8;set .@portalfechado,0;enablenpc "payonpvpevent";
+end;
+
+case 3:
+next;
+mes"[EVENTO PVP]";
+mes "E bem facil você só precisa abrir o portal e deixa os player entrerem no mapa depois que estiver todos lá basta ir no Npc gerenciador e ligar o evento";
+mes "A premiação vai depender de você porem esse evento só pode ser aberto 2 vezes por semana!";mes "itens recomandos como premiação Ygg,Zeny ou cash";
+close;
+
+case 4:
+next;
+mes "[EVENTO PVP]";
+mes "Ok volte quando quiser";
+close;
+}
+nogm:
+mes "[EVENTO PVP]";
+mes"Você não e GM para iniciar o evento de PVP";
+close;
+
+
+OnInit:
+disablenpc "payonpvpevent";
+end;
+}
+
+guild_vs2,57,73,4	script	Gerenciador(Staff)	105,{
+cutin "prt_soldier.bmp",2;
+if (getgmlevel() >= 10){
+mes "[EVENTO PVP]";
+mes "O que você quer fazer?";
+switch(select("[^339966+^000000]Ligar PvP:[^339966+^000000]Desligar PvP:[^339966+^000000]Fechar o Portal de go 0:[^339966+^000000]Kikar Todos para Prontera:[^339966+^000000]Sair")){
+
+case 1:
+next;
+mes "[EVENTO PVP]";
+mes "Tem certeza que deseja ligar o PvP nesse mapa?";switch(select("[^339966+^000000]SIM:[^339966+^000000]Não")){
+case 1:next;mes "[EVENTO PVP]";mes "Ok o evento será iniciado!";close2;
+cutin "",255;
+mapannounce "guild_vs2","[ Evento PvP ]: O PvP será ligado em 1 minuto! preparece!",8;if(.@portalfechado == 0){announce "[ GlobalRAG ] O Portal para entra no evento PvP irá fechar em 50 Segundo Venham Rapido Coordenadas:Prontera 137 167!",8;sleep 30000;disablenpc "payonpvpevent";set .@portalfechado,1;goto nextevent;}nextevent:
+sleep 30000;
+mapannounce "guild_vs2","[ Evento PvP ]: O PvP será ligado em 10 segundos!!! preparece!",8;
+sleep 10000;
+mapannounce "guild_vs2","[ Evento PvP ]: O PvP está ligado Divirta-se!!",8;
+atcommand "@pvpon";
+end;case 2:next;mes "[EVENTO PVP]";mes "Ok volte quando quiser iniciar o evento PVP";close2;cutin "",255;end;}
+
+case 2:
+next;
+mes "[EVENTO PVP]";
+mes "Tem certeza que deseja desligar o pvp nesse mapa?";switch(select("[^339966+^000000]SIM:[^339966+^000000]Não")){case 1:next;mes "[EVENTO PVP]";mes "Ok o evento será desligado antes do seu termino!";
+close2;
+cutin "",255;
+mapannounce "guild_vs2","[ Evento PvP ]: O PvP será Desligado em 5 segundos!!! Obrigado a Todos!",8;
+sleep 5000;
+atcommand "@pvpoff";
+end;case 2:next;mes "[EVENTO PVP]";mes "Ok então volte a observar o evento!";close2;cutin "",255;end;}
+case 3:next;mes "[EVENTO PVP]";mes "Ok o portal de go 0 será fechado apos isso fale comigo novamente quando quiser começa o evento!";close2;announce "[ GlobalRAG ] O Portal para entra no evento PvP irá fechar em 30 Segundo Venham Rapido Coordenadas:Prontera 137 167!",8;sleep 30000;disablenpc "payonpvpevent";set .@portalfechado,1;end;
+case 4:
+next;
+mes "[EVENTO PVP]";
+mes "Tem certeza que deseja kikar todos do mapa e envialos para prontera?";
+switch(select("[^339966+^000000]SIM:[^339966+^000000]Não")){
+
+case 1:
+next;
+mes "[EVENTO PVP]";
+mes "Ok vou mandar todos para prontera!";
+close2;
+cutin "",255;
+mapwarp "guild_vs2","prontera",150,150;
+end;
+
+case 2:
+next;
+mes "[EVENTO PVP]";
+mes "Ok volte quando quiser..";
+close2;cutin "",255;end;
+}
+
+case 5:
+next;
+mes "[EVENTO PVP]";
+mes "Ok volte quando quiser...";
+close2;cutin "",255;end;
+}
+} else {
+mes "[EVENTO PVP]";
+mes "Você não e da staff espere um GM ou ADM ligar o evento...";
+close2;cutin "",255;end;
+}}//Frag do mapa PVPguild_vs2	mapflag	nowarpguild_vs2	mapflag	nowarptoguild_vs2	mapflag	noteleportguild_vs2	mapflag	nosave	SavePointguild_vs2	mapflag	nomemoguild_vs2	mapflag	nobranchguild_vs2	mapflag	nopenalty

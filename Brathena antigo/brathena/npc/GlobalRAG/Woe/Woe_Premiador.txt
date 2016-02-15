@@ -1,0 +1,92 @@
+prontera,163,232,4	script	Premiador Woe	480,{
+cutin "3rd_mins_song02.bmp",2;
+set .@GID1,getcharid(2);
+set .@Nome$,strcharinfo(0);
+if (.@GID1 <= 0)goto Noguild;
+if(agitcheck() || agitcheck2())goto woeon;
+query_sql "SELECT `account_id` FROM `premiador_woe` WHERE `name`='"+.@Nome$+"'",.@cont;
+if(.@cont > 999)goto pegou;
+if(.@cont == 0 && $woe_GID == .@GID1){
+mes "[Premiador Woe]";
+mes "Parabéns pela vitoria do seu clã deseja pegar seu cash?";
+switch(select("[^339966+^000000]Sim...:[^339966+^000000]Não...:[^339966+^000000]Informações")) {
+
+case 1:
+next;
+mes "[Premiador Woe]";
+mes "Aqui esta seu premio campeão! otima luta meu amigo.";
+close2;
+query_sql "INSERT INTO `premiador_woe` (`account_id`,`name`,`Pegou`) values ('"+getcharid(3)+"','"+.@Nome$+"','1')";
+set @cash,rand(10,80);
+set #CASHPOINTS,#CASHPOINTS + @cash; 
+dispbottom "Você acaba de ganhar "+@cash+" pontos de Cash. Totalizando: "+#CASHPOINTS+" PONTOS!";
+cutin "",255;
+end;
+
+case 2:
+next;
+mes "[Premiador Woe]";
+mes "Ok até mais tarde...Lembrando que se não pegar o premio até a proxima woe o premio não será mais recebido.";
+close2;
+cutin "",255;
+end;
+
+case 3:
+next;
+mes "[Premiador Woe]";
+mes "A premiação acontece sempre depois da woe o os membros do clã que ganharem a woe e ficarem com o castelo";
+mes "Ganham de 1 a 100 de cash por WOE ou seja na 1.0 você pode ganha de 1 a 100 e na 2.0 também!";
+mes "Não perca tempo monte um clã bem forte e vá para a woe!";
+close2;
+cutin "",255;
+end;
+}
+} else {
+mes "[Premiador Woe]";
+mes "Seu clã não ganhou a woe... volte quando seu clã for o grande campeão!";
+close2;
+cutin "",255;
+end;
+}
+
+pegou:
+mes "[Premiador Woe]";
+mes "Você já pegou o seu cash volte quando seu clã ganhar a woe de novo.";
+close2;
+cutin "",255;
+end;
+
+woeon:
+mes "[Premiador Woe]";
+mes "A woe está Rolando!! só volte aqui quando ela acabar...";
+close2;
+cutin "",255;
+end;
+
+Noguild:
+mes "[Premiador Woe]";
+mes "Você não tem Guild para receber a premiação";
+close2;
+cutin "",255;
+end;
+
+OnInit:
+waitingroom "Premiador Woe",0;
+end;
+}
+
+-	script	premiador_woe2	-1,{
+OnAgitStart:
+OnAgitStart2:
+query_sql "TRUNCATE TABLE `premiador_woe`";
+end;
+}
+
+-	script	premiador_woe	-1,{
+OnAgitEnd:
+OnAgitEnd2:
+query_sql "SELECT `name` FROM `char` WHERE `account_id`='"+$dono_guild_premio+"'",.@Name$;
+query_sql "SELECT `guild_id` FROM `guild` WHERE `master`='"+.@Name$+"'",.@Guild;
+set $premiowoe,.@Guild;
+end;
+}

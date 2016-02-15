@@ -1,0 +1,123 @@
+-	script	ChecagemPortalWOE	-1,{
+//TERÇA
+OnTue1400:
+
+disablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Desativar
+disablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Desativar
+disablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Desativar
+end;
+
+OnTue1500:
+
+enablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Ativar
+enablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Ativar
+enablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Ativar
+end;
+
+//QUINTA
+OnThu1400:
+
+disablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Desativar
+disablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Desativar
+disablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Desativar
+end;
+
+OnThu1500:
+
+enablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Ativar
+enablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Ativar
+enablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Ativar
+end;
+
+//SABADO
+OnSat1400:
+
+disablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Desativar
+disablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Desativar
+disablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Desativar
+end;
+
+OnSat1500:
+
+enablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Ativar
+enablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Ativar
+enablenpc "aldeg-1_aldeg-1-1"; // Nome do NPC que vai Ativar
+end;
+
+//DOMINGO
+OnSun1400:
+
+disablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Desativar
+disablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Desativar
+disablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Desativar
+end;
+
+OnSun1500:
+
+enablenpc "prtg-3_prtg-3"; // Nome do NPC que vai Ativar
+enablenpc "gef-g4_gefg-4-05"; // Nome do NPC que vai Ativar
+enablenpc "payg-3_payg-3-07"; // Nome do NPC que vai Ativar
+end;
+
+//============WOE 2.0=============//
+
+//TERÇA
+OnTue1900:
+
+disablenpc "schg202"; // Nome do NPC que vai Desativar
+disablenpc "schg502"; // Nome do NPC que vai Desativar
+disablenpc "arug102"; // Nome do NPC que vai Desativar
+end;
+
+OnTue2000:
+
+enablenpc "schg202"; // Nome do NPC que vai Ativar
+enablenpc "schg502"; // Nome do NPC que vai Ativar
+enablenpc "arug102"; // Nome do NPC que vai Ativar
+end;
+
+//QUINTA
+OnThu1900:
+
+disablenpc "schg102"; // Nome do NPC que vai Desativar
+disablenpc "schg502"; // Nome do NPC que vai Desativar
+disablenpc "arug102"; // Nome do NPC que vai Desativar
+end;
+
+OnThu2000:
+
+enablenpc "schg102"; // Nome do NPC que vai Ativar
+enablenpc "schg502"; // Nome do NPC que vai Ativar
+enablenpc "arug102"; // Nome do NPC que vai Ativar
+end;
+
+//SABADO
+OnSat1900:
+
+disablenpc "schg102"; // Nome do NPC que vai Desativar
+disablenpc "schg202"; // Nome do NPC que vai Desativar
+disablenpc "arug102"; // Nome do NPC que vai Desativar
+end;
+
+OnSat2000:
+
+enablenpc "schg102"; // Nome do NPC que vai Ativar
+enablenpc "schg202"; // Nome do NPC que vai Ativar
+enablenpc "arug102"; // Nome do NPC que vai Ativar
+end;
+
+//DOMINGO
+OnSun1900:
+
+disablenpc "schg102"; // Nome do NPC que vai Desativar
+disablenpc "schg202"; // Nome do NPC que vai Desativar
+disablenpc "schg502"; // Nome do NPC que vai Desativar
+end;
+
+OnSun2000:
+
+enablenpc "schg102"; // Nome do NPC que vai Ativar
+enablenpc "schg202"; // Nome do NPC que vai Ativar
+enablenpc "schg502"; // Nome do NPC que vai Ativar
+end;
+}

@@ -1,0 +1,25 @@
+function	script	transform	{
+set @chance,rand(90,100);
+ 
+if(@chance <= 10){ //Dá uma chance de 10%
+specialeffect2 EF_POTION_BERSERK;
+montransform "Eddga",3000,SC_MTF_ASPD;
+}
+}
+/*
+{ 
+set .@i,3+(3*getequiprefinerycnt(EQI_HEAD_TOP)); 
+autobonus "{ 
+montransform "Deviruchi",12000,SC_MTF_ASPD;
+bonus bBaseAtk,30; 
+}",.@i,5000,0,"{ 
+specialeffect2 EF_POTION_BERSERK; 
+}"; 
+autobonus2 "{ 
+montransform "Deviruchi",12000,SC_MTF_ASPD;
+bonus bBaseAtk,30; 
+}",.@i,5000,BF_WEAPON,"{ 
+specialeffect2 EF_POTION_BERSERK; 
+}"; 
+}
+*/

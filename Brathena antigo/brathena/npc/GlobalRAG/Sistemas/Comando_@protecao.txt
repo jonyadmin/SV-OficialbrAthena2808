@@ -1,0 +1,282 @@
+-	script	Inicio	-1,{
+OnPCLoginEvent:
+if ( getgmlevel() == 2 ) { atcommand "@fakename [VIP] "+strcharinfo(0)+"";
+}
+if ( getgmlevel() == 3 ) { atcommand "@fakename [VIP] "+strcharinfo(0)+"";
+}
+if ( getgmlevel() > 3 && getgmlevel() < 90) { atcommand "@fakename [GM] "+strcharinfo(0)+"";
+}
+if ( getgmlevel() == 90) { atcommand "@fakename [Sub-ADM] "+strcharinfo(0)+"";
+}
+if ( getgmlevel() == 99 ) { atcommand "@fakename [ADM] "+strcharinfo(0)+"";
+}
+set .@conta_id,getcharid(3);
+if(#jalogou == 0) {
+dispbottom "Você Recebeu 4 Itens de Novato Destruidor com validade de 7 Dias";
+rentitem 501,10;
+rentitem 502,10;
+rentitem 503,10;
+rentitem 504,10;
+set #jalogou,1;
+}
+dispbottom "Bem-vindo ao RagnaLife! Favor reportar Problemas do Servidor no nosso Fórum www.ragnalife.com/forum";
+dispbottom "Suporte RaidCall id:8749145 ou Acesse:www.ragnalife.com/forum";
+dispbottom "Verificando Contas...";
+dispbottom "Seu Status São:";
+dispbottom "Você tem "+#CASHPOINTS+" de Cash!";
+dispbottom "Você tem "+#FAMA+" de Fama!";
+query_sql "SELECT `active_pincode` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@activepin;
+if(.@activepin == 1){
+atcommand "@option 2 0 2 "+strcharinfo(0)+"";
+query_sql "SELECT `pincode` FROM `login` WHERE `account_id`='"+.@conta_id+"'",.@pincode;
+cutin "3rd_ab_valkyrie.bmp",2;
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";
+mes "Digite a Senha PIM Para Logar Nessa Conta!.";
+next;
+input .@senha;
+if (.@senha == .@pincode){
+atcommand "@option 0 0 0 "+strcharinfo(0)+"";
+mes "[^FF7F24Sistema de Proteção RagnaLife^000000]";
+mes "Conta Liberada!";
+close2;
+cutin "",255;
+message strcharinfo(0),"Conta Protegida pelo Sistema PIM do RagnaLife.";
+end;
+} else {
+mes "[^FF7F24Sistema de Proteção RagnaLife^000000]";
+mes "Senha PIM errada Tente mais tarde";
+next;
+cutin "",255;
+atcommand "@unmute "+strcharinfo(0);
+atcommand "@option 0 0 0 "+strcharinfo(0)+"";
+atcommand "@kick "+strcharinfo(0);
+end;
+}
+} else {
+message strcharinfo(0),"Conta Sem Proteção PIM use @protecao e ative sua proteção";
+}
+}
+-	script	atcmd_protecao	-1,{
+OnInit:	
+bindatcmd "protecao",strnpcinfo(3)+"::OnAtcommand";	
+end;
+OnAtcommand:	
+if(getgmlevel() > 4){
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Staff não pode usar esse recurso";	
+close;	
+}	
+iniciar:	
+set .@conta_id,getcharid(3);	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Status Atual";
+mes "- Você tem Código de Segurança?";	
+query_sql "SELECT `pincode` FROM `login` WHERE `account_id`='"+.@conta_id+"'",.@pincode;	
+if(.@pincode < 999){	
+mes "			^FF7F24Sem Senha de Proteção^000000";	
+}else{	
+mes "			^609844Com senha de Proteção^000000";	
+}	
+mes "- Código de Segurança está?";	
+query_sql "SELECT `active_pincode` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@activepin;	
+if(!.@activepin){	
+mes "			^FF7F24Desativado^000000";	
+}else{	
+mes "			^609844Ativo^000000";	
+}	
+mes "- Bloqueio de Itens e Drop está?";	
+query_sql "SELECT `active_drop` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@activedrop;	
+if(!.@activedrop){	mes "			^FF7F24Desativado^000000";	
+}else{	
+mes "			^609844Ativo^000000";	
+}	
+next;	
+switch(select("Criar Senha:Ativar Senha:Desavitar Proteção PIM:Bloqueio Itens e Drop:Desbloquear Itens e Drop:Sair")) {		
+case 1:	
+if(.@pincode < 999){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Digite a senha PIM de proteção";	
+mes "A senha de conter só numeros e só de 1000 a 9999";	
+input .@senha;	
+if(!.@senha && .@senha < 999 && .@senha > 10000){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Desculpe Mais a Senha PIM deve ser uma seguencia numerica de 1000 até 9999, Volte quando quiser criar um senha de proteção.";	
+close;	
+}else{	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Repita a senha PIM de proteção por favor";	
+input .@senha2;	
+if(.@senha != .@senha2){	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes " A primeira senha não está igual a segunda que vc digitou tente novamente";	
+close;	
+}else{	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Senha PIM de proteção criada com Sucesso Ative caso queira que ao logar o player seja perguntado qual ea sua senha PIM para a sua propria segurança";	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Guarde a senha com cuidado pois para reculpera-lá só pelo E-mail a staff não reculpera senha pra ninguem";	
+close2;	
+dispbottom "Sua senha de proteção e "+.@senha+"";	
+query_sql "UPDATE `login` SET `pincode`='"+.@senha+"' WHERE `account_id`='"+.@conta_id+"'";	
+end;	
+}	
+}	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você já tem senha PIM caso não se lembre recupere a mesma no site www.RagnaLife.com";	
+close;	
+}
+	
+case 2:	
+if(.@pincode > 999){	
+query_sql "SELECT `account_id` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@account_id;	
+if(!.@account_id  || .@account_id < 1900000){	
+query_sql "INSERT INTO `protecao_db` (`account_id`,`active_pincode`) values ('"+.@conta_id+"','1')";	
+goto iniciar;	
+}else{	
+query_sql "UPDATE `protecao_db` SET `active_pincode`='1' WHERE `account_id`='"+.@conta_id+"'";	
+goto iniciar;	
+}	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você ainda não tem uma Senha de proteção você precisa criar uma para Ativa-lá";	
+close;	
+}	
+	
+case 3:	if(#CHANCES2 == 3){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você já teve 3 erros tente mais tarde";	
+close;	
+}	
+query_sql "SELECT `active_pincode` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@activepin;	
+if(.@activepin != 1){
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "O PIM já está desativado";	
+close;	
+}	
+if(.@pincode > 999){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Tem certeza que deseja Desativar o PIM de proteção?";	
+switch(select("SIM:NÃO")) {	
+case 1:	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Ok digite a senha PIM de proteção pra desativa-la";	
+input .@desavitarsenha;	
+if(.@desavitarsenha != .@pincode){	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você digitou a senha errada tente novamente mais tarde";	
+set #CHANCES2,#CHANCES2 + 1;	
+mes "Numero de chances ( ^FF7F24"+#CHANCES2+"^000000 )";	
+close;	
+}else{	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Senha PIM de proteção desativada tenha um bom jogo";	
+close2;	
+query_sql "UPDATE `protecao_db` SET `active_pincode`='0' WHERE `account_id`='"+.@conta_id+"'";	
+set #CHANCES2,0;	
+goto iniciar;	
+}	
+case 2:	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Ok continue assim a proteção em primeiro lugar";	
+close;	
+}	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você não tem Senha PIM volte quando tiver uma.";	
+close;	
+}			
+case 4:	
+query_sql "SELECT `active_drop` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@active_drop3;	
+if(.@active_drop3 == 1){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "o Bloqueio de itens e drop já está ativo";	
+next;	
+goto iniciar;	
+}	
+if(.@pincode > 999){	
+query_sql "SELECT `account_id` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@account_id2;	
+if(!.@account_id2 || .@account_id2 < 1900000){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você será deslogado para que os itens e drop seja bloqueado!";	
+next;	
+query_sql "INSERT INTO `protecao_db` (`account_id`,`active_drop`) values ('"+.@conta_id+"','1')";	
+message strcharinfo(0),"Trade,Drop e Shop Bloqueados Tenha um bom jogo!";	
+query_sql "UPDATE `login` SET `group_id`='1' WHERE `account_id`='"+.@conta_id+"'";	
+atcommand "@disconect";	
+end;	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Itens,Drop e venda bloqueada para entra em vigor por favor relogue.";	
+next;	
+query_sql "UPDATE `protecao_db` SET `active_drop`='1' WHERE `account_id`='"+.@conta_id+"'";	
+message strcharinfo(0),"Trade,Drop e Shop Bloqueados Tenha um bom jogo!";	
+query_sql "UPDATE `login` SET `group_id`='2' WHERE `account_id`='"+.@conta_id+"'";	
+end;	
+}	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Crie uma Senha de proteção para poder Bloquear seus itens";	
+close;	
+}	
+
+case 5:	
+if(#CHANCES == 3){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você já teve 3 erros tente mais tarde";	
+close;	
+}	
+query_sql "SELECT `active_drop` FROM `protecao_db` WHERE `account_id`='"+.@conta_id+"'",.@active_drop3;	
+if(.@active_drop3 == 0){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "o Desbloqueio de itens e drop já está desativado";	
+next;	
+goto iniciar;	
+}	
+query_sql "SELECT `pincode` FROM `login` WHERE `account_id`='"+.@conta_id+"'",.@pincode2;	
+if(!.@pincode2 || .@pincode2 < 999){	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Você não tem PIM de proteção crie um depois venha até aqui.";	
+close;	
+}else{	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Para desbloquear o drop e itens e etc.. me informe a senha PIN de proteção";	
+input .@senhadesblok;	
+if(.@senhadesblok != .@pincode2){	
+next;	mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "A senha que você digitou não e igual a senha PIM de proteção desta conta tente novamente";	
+set #CHANCES,#CHANCES + 1;	
+mes "Numero de chances ( ^FF7F24"+#CHANCES+"^000000 )";	
+close;	
+}else {	
+next;	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "^FF7F24Ok itens,drop e shop Desbloqueado por favor relogue para o desbloqueio entre em vigor!^000000";	
+close2;	
+set #CHANCES,0;	
+query_sql "UPDATE `protecao_db` SET `active_drop`='0' WHERE `account_id`='"+.@conta_id+"'";	
+query_sql "UPDATE `login` SET `group_id`='0' WHERE `account_id`='"+.@conta_id+"'";	
+end;	
+}	
+}	
+		
+case 6:	
+mes "[^eb5afdSistema de Proteção RagnaLife^000000]";	
+mes "Ok volte sempre";	
+close;	
+}	
+}	
+-	script	removerchances	-1,{
+OnClock0000:
+query_sql "DELETE FROM `acc_reg_num_db` WHERE `key` = '#CHANCES'";
+query_sql "DELETE FROM `acc_reg_num_db` WHERE `key` = '#CHANCES2'";
+end;
+}

@@ -1,0 +1,8 @@
+-	script	atcmd_bonus	-1,{
+OnInit:
+	bindatcmd "bonus",strnpcinfo(3)+"::OnAtcommand";
+	end;
+OnAtcommand:
+	dispbottom "Você tem "+#CASHPOINTS+" de Cash!";
+	end;
+}

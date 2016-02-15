@@ -1,0 +1,4 @@
+//prontera	mapflag	zone	Pront
+prontera	mapflag	bypass_noskill	MO_BODYRELOCATION
+prontera	mapflag	bypass_noskill	MO_CALLSPIRITS
+prontera	mapflag	noskill

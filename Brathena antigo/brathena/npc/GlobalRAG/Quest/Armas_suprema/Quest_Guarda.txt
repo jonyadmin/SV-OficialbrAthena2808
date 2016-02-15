@@ -1,0 +1,18 @@
+prontera,143,164,5	script	[Quest]Supremos	413,{
+mes "[Guarda Real]";
+mes "Olá Senhor "+strcharinfo(0)+" Sou Guarda do Rei estou indo pra moscovia agora se quiser posso te leva até a ^FF0000Betinah^000000 a primeira pessoa da Quest de ^FF0000Armas Supremas^000000";
+next;
+switch(select("Sim claro!:Não obrigado")) {
+
+case 2:
+mes "[Guarda Real]";
+mes "Ok,"+strcharinfo(0)+" Volte quando você desejar e Tenha um bom dia!";
+close;
+
+case 1:
+mes "Ok boa viagem e até logo!!";
+next;
+warp "moscovia", 265, 162;
+close;
+}
+}

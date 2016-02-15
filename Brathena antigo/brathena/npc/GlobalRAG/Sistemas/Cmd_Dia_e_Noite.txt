@@ -1,0 +1,34 @@
+-	script	timer	-1,{
+end;
+
+OnInit:
+if(gettime(3) > 7 && gettime(3) < 19) {
+goto DIA;
+} else {
+goto NOITE;
+}
+
+NOITE:
+night;
+announce "[ GlobalRAG ] Anoitece e os habitantes de Rune-Midgard retornam para suas casas...",0;
+end;
+
+DIA:
+day;
+announce "[ GlobalRAG ] O Sol se levanta sobre toda Rune-Midgard...",0;
+end;
+
+OnHour19:
+goto NOITE;
+
+OnHour07:
+goto DIA;
+
+OnClock1200:
+announce "[ GlobalRAG ] Mais uma tarde no horizonte, o Sol está em seu ponto mais alto...",0;
+end;
+
+OnClock2400:
+announce "[ GlobalRAG ] Uma escuridão sinistra cai sobre o Mundo dos Homens...",0;
+end;
+}
