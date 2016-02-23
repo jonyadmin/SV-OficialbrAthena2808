@@ -949,6 +949,9 @@ int pc_isequip(struct map_session_data *sd,int n)
 	if(pc_has_permission(sd, PC_PERM_USE_ALL_EQUIPMENT))
 		return 1;
 
+	if(sd->sc.data[SC_BLADESTOP])
+		return 0;
+
 	if(item == NULL)
 		return 0;
 	if(item->elv && sd->status.base_level < (unsigned int)item->elv) {
@@ -4411,6 +4414,9 @@ int pc_useitem(struct map_session_data *sd,int n)
 
 	if(!pc_isUseitem(sd,n))
 		return 0;
+	
+	if(sd->sc.data[SC_BLADESTOP])
+	return 0;
 
 	// Store information for later use before it is lost (via pc_delitem) [Paradox924X]
 	nameid = sd->inventory_data[n]->nameid;
@@ -8984,6 +8990,10 @@ int pc_unequipitem(struct map_session_data *sd,int n,int flag)
 
 	if(n < 0 || n >= MAX_INVENTORY) {
 		clif_unequipitemack(sd,0,0,UIA_FAIL);
+		return 0;
+	}
+	
+	if(sd->sc.data[SC_BLADESTOP]){
 		return 0;
 	}
 
