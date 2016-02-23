@@ -1,0 +1,56 @@
+-	script	PlayerLadderPK	-1,{
+OnPCKillEvent:    
+getmapxy @map$,@x,@y,0;    
+set @Found,0;
+setarray .@Score[0], 1, 2, 3, 5, 10, 15, 20, 25, 30, 35, 40, 50;	// Pontos para cada Sound
+for(set @i,0; @i < getarraysize($pvp_PK_map$); set @i,@i+1)           
+if(@map$==$pvp_PK_map$[@i]){
+set @variavelpoints,@variavelpoints+1;
+					for (set .@k,0;.@k <= 99;set .@k,.@k+1) {
+						if (@PvP_CharID[.@k] == getcharid(0)){
+							set @esta,1;
+						break;
+					}
+				else continue;
+			}
+			if(@esta==1){
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | First Blood ! [ Ranking Origem: "+(.@k+1)+"° ]";
+				} else {
+					dispbottom "[PvP Origem]: "+strcharinfo(0)+" | First Blood ! [ Você Não Esta no Ranking ainda ]";
+				}
+			}
+if(!@Found)        
+end;    
+query_sql "SELECT `kills`,`name_player` FROM `ranking_origens` WHERE `char_id`="+getcharid(0),@ppoints,@name$;   
+if( @name$ == "" ){    
+query_sql "INSERT INTO `ranking_origens` (`char_id`,`name_player`,`kills`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";
+}else{    
+query_sql "UPDATE `ranking_origens` set `kills` = `kills` +1 WHERE `char_id`="+getcharid(0); 
+}   
+attachrid killedrid;    
+query_sql "SELECT `mortes`,`name_player` FROM `ranking_origens` WHERE `char_id`="+getcharid(0),@ppoints,@name$;    
+if(@name$ == "" ){    
+query_sql "INSERT INTO `ranking_origens` (`char_id`,`name_player`,`mortes`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{    
+query_sql "UPDATE `ranking_origens` set `mortes` = `mortes` + 1 WHERE `char_id`="+getcharid(0);
+}
+//Ranking Classes//
+query_sql "SELECT `kills`,`name_player` FROM `ranking_classes` WHERE `char_id`="+getcharid(0),@pontos,@name2$;
+if( @name2$ == "" ) {   
+query_sql "INSERT INTO `ranking_classes` (`char_id`,`name_player`,`kills`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{  
+query_sql "UPDATE `ranking_classes` set `kills` = `kills` +1 WHERE `char_id`="+getcharid(0);
+}    
+attachrid killedrid;    
+query_sql "SELECT `mortes`,`name_player` FROM `ranking_classes` WHERE `char_id`="+getcharid(0),@pontos,@name2$;    
+if(@name2$ == "" ){    
+query_sql "INSERT INTO `ranking_classes` (`char_id`,`name_player`,`mortes`) VALUES ("+getcharid(0)+",'"+strcharinfo(0)+"',0)";    
+}else{    
+query_sql "UPDATE `ranking_classes` set `mortes` = `mortes` + 1 WHERE `char_id`="+getcharid(0);
+}
+set @variavelpoints,0;
+end;
+OnInit:        
+setarray $pvp_PK_map$[0],"prontera";
+end;
+}
