@@ -61,7 +61,7 @@
 // 20120307 - 2012-03-07aRagexeRE+ - 0x970
 
 #ifndef PACKETVER
-	#define PACKETVER 20100730
+	#define PACKETVER 20120410
 #endif
 
 /// Comentar a linha a seguir se seu cliente não é ragexeRE (necessário por causa de pacotes conflitantes em ragexe vs ragexeRE)
